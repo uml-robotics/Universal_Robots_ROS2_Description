@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
-<!--Modified from https://github.com/uml-robotics/armada_resources/blob/main/armada_description/armada_tooling/urdf/d435_millibar_model_macro.urdf.xacro-->
-<robot name="ur5_hri_lab" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:arg name="name" default="ur5"/>
+<!--Modified from 
+https://github.com/uml-robotics/armada_resources/blob/main/armada_description/armada_tooling/urdf/d435_millibar_model_macro.urdf.xacro
+https://github.com/JuoTungChen/ROS2_pick_and_place_UR5/blob/master/ur5_gripper_description/urdf/ur5_robotiq85_gripper.urdf.xacro
+-->
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg name)">
+   <!-- robot name parameter -->
+  <xacro:arg name="name" default="ur"/>
   <xacro:arg name="ur_type" default="ur5"/>
 
   <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro" />
