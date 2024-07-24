@@ -56,7 +56,7 @@ https://github.com/JuoTungChen/ROS2_pick_and_place_UR5/blob/master/ur5_gripper_d
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_macro.urdf.xacro" />
 
   <xacro:robotiq_gripper name="RobotiqGripperHardwareInterface" prefix="" parent="robotiq_coupler" use_fake_hardware="$(arg use_fake_hardware)">
-      <origin xyz="0 0 0.01726" rpy="0 0 0"/>
+      <origin xyz="0 0 0.011" rpy="0 0 0"/>
   </xacro:robotiq_gripper>
 
   <gazebo reference="wrist_3_joint">
