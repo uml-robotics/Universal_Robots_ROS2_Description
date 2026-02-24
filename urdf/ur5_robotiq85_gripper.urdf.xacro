@@ -7,9 +7,13 @@ https://github.com/JuoTungChen/ROS2_pick_and_place_UR5/blob/master/ur5_gripper_d
    <!-- robot name parameter -->
   <xacro:arg name="name" default="ur"/>
   <xacro:arg name="ur_type" default="ur5"/>
+  <xacro:arg name="sim_isaac" default="false" />
+  <xacro:arg name="use_fake_hardware" default="false" />
 
   <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro" />
 
+
+<!--
   <material name="black">
     <color rgba="0 0 0 1"/>
   </material>
@@ -47,18 +51,16 @@ https://github.com/JuoTungChen/ROS2_pick_and_place_UR5/blob/master/ur5_gripper_d
     <mu2>0.9</mu2>
     <material>Gazebo/FlatBlack</material>
   </gazebo>
-  
-
-
-  
-  <xacro:arg name="use_fake_hardware" default="false" />
+  -->
 
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_macro.urdf.xacro" />
 
-  <xacro:robotiq_gripper name="RobotiqGripperHardwareInterface" prefix="" parent="robotiq_coupler" use_fake_hardware="$(arg use_fake_hardware)">
-      <origin xyz="0 0 0.011" rpy="0 0 0"/>
+  <xacro:robotiq_gripper name="RobotiqGripperHardwareInterface" prefix="" parent="wrist_3_link" use_fake_hardware="$(arg use_fake_hardware)" sim_isaac="$(arg sim_isaac)">
+      <origin xyz="0 0 0" rpy="0 0 1.5708"/>
   </xacro:robotiq_gripper>
 
+
+<!--
   <gazebo reference="wrist_3_joint">
     <provideFeedback>true</provideFeedback>
   </gazebo>
@@ -70,7 +72,7 @@ https://github.com/JuoTungChen/ROS2_pick_and_place_UR5/blob/master/ur5_gripper_d
       <jointName>wrist_3_joint</jointName>
     </plugin>
   </gazebo>
-  
+  -->
 
   <gazebo>
     <gripper name="gazebo_gripper">
