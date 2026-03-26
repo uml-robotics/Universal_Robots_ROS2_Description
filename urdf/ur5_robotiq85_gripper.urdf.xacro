@@ -9,6 +9,8 @@ https://github.com/JuoTungChen/ROS2_pick_and_place_UR5/blob/master/ur5_gripper_d
   <xacro:arg name="ur_type" default="ur5"/>
   <xacro:arg name="sim_isaac" default="false" />
   <xacro:arg name="use_fake_hardware" default="false" />
+  <xacro:arg name="gripper_isaac_joint_commands" default="/isaac_gripper_joint_commands" />
+  <xacro:arg name="gripper_isaac_joint_states" default="/isaac_joint_states" />
 
   <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro" />
 
@@ -55,7 +57,14 @@ https://github.com/JuoTungChen/ROS2_pick_and_place_UR5/blob/master/ur5_gripper_d
 
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_macro.urdf.xacro" />
 
-  <xacro:robotiq_gripper name="RobotiqGripperHardwareInterface" prefix="" parent="wrist_3_link" use_fake_hardware="$(arg use_fake_hardware)" sim_isaac="$(arg sim_isaac)">
+    <xacro:robotiq_gripper
+      name="RobotiqGripperHardwareInterface"
+      prefix=""
+      parent="wrist_3_link"
+      use_fake_hardware="$(arg use_fake_hardware)"
+      sim_isaac="$(arg sim_isaac)"
+      isaac_joint_commands="$(arg gripper_isaac_joint_commands)"
+      isaac_joint_states="$(arg gripper_isaac_joint_states)">
       <origin xyz="0 0 0" rpy="0 0 1.5708"/>
   </xacro:robotiq_gripper>
 
